@@ -14,6 +14,8 @@
 		605892A91C7C2F25008831EB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 605892A81C7C2F25008831EB /* Images.xcassets */; };
 		605892AC1C7C2F25008831EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 605892AA1C7C2F25008831EB /* LaunchScreen.xib */; };
 		605892B81C7C2F25008831EB /* SmartBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 605892B71C7C2F25008831EB /* SmartBusTests.m */; };
+		605892C21C7C48CF008831EB /* routes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 605892C11C7C48CF008831EB /* routes.plist */; };
+		605892C51C7C4D7C008831EB /* LHYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 605892C41C7C4D7C008831EB /* LHYRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		605892B11C7C2F25008831EB /* SmartBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		605892B61C7C2F25008831EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		605892B71C7C2F25008831EB /* SmartBusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartBusTests.m; sourceTree = "<group>"; };
+		605892C11C7C48CF008831EB /* routes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = routes.plist; sourceTree = "<group>"; };
+		605892C31C7C4D7C008831EB /* LHYRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHYRoute.h; sourceTree = "<group>"; };
+		605892C41C7C4D7C008831EB /* LHYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHYRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				6058929F1C7C2F25008831EB /* AppDelegate.h */,
+				605892C31C7C4D7C008831EB /* LHYRoute.h */,
+				605892C41C7C4D7C008831EB /* LHYRoute.m */,
 				605892A01C7C2F25008831EB /* AppDelegate.m */,
 				605892A21C7C2F25008831EB /* ViewController.h */,
 				605892A31C7C2F25008831EB /* ViewController.m */,
@@ -98,6 +105,7 @@
 			children = (
 				6058929C1C7C2F25008831EB /* Info.plist */,
 				6058929D1C7C2F25008831EB /* main.m */,
+				605892C11C7C48CF008831EB /* routes.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 		605892901C7C2F25008831EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LHY;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "hongyi liu";
 				TargetAttributes = {
@@ -199,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				605892C21C7C48CF008831EB /* routes.plist in Resources */,
 				605892A71C7C2F25008831EB /* Main.storyboard in Resources */,
 				605892AC1C7C2F25008831EB /* LaunchScreen.xib in Resources */,
 				605892A91C7C2F25008831EB /* Images.xcassets in Resources */,
@@ -220,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				605892A41C7C2F25008831EB /* ViewController.m in Sources */,
+				605892C51C7C4D7C008831EB /* LHYRoute.m in Sources */,
 				605892A11C7C2F25008831EB /* AppDelegate.m in Sources */,
 				6058929E1C7C2F25008831EB /* main.m in Sources */,
 			);
