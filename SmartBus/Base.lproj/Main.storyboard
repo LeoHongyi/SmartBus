@@ -167,14 +167,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5e-Da-ZaF">
-                                <rect key="frame" x="121" y="261" width="82" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zx9-ey-ZPI">
+                                <rect key="frame" x="157" y="295" width="78" height="30"/>
                                 <state key="normal" title="REQUEST">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="holdRequest:" destination="iOs-dF-n0b" eventType="touchUpInside" id="Abp-Mi-jEG"/>
+                                    <action selector="request:" destination="iOs-dF-n0b" eventType="touchUpInside" id="5FH-Dh-eQw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -186,7 +185,7 @@
                         <outlet property="p_next_delay" destination="VM9-KS-rFh" id="ifJ-SQ-jsX"/>
                         <outlet property="poBusArrT" destination="CwG-Tq-HQJ" id="DPM-64-pvc"/>
                         <outlet property="podBusArrT" destination="PYe-w0-Csf" id="RW1-fb-8iH"/>
-                        <outlet property="request" destination="n5e-Da-ZaF" id="4MM-w5-gnC"/>
+                        <outlet property="request" destination="zx9-ey-ZPI" id="Hoy-gp-Pj3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0J-jl-QMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
