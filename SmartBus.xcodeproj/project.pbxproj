@@ -16,6 +16,10 @@
 		605892B81C7C2F25008831EB /* SmartBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 605892B71C7C2F25008831EB /* SmartBusTests.m */; };
 		605892C21C7C48CF008831EB /* routes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 605892C11C7C48CF008831EB /* routes.plist */; };
 		605892C51C7C4D7C008831EB /* LHYRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 605892C41C7C4D7C008831EB /* LHYRoute.m */; };
+		60680BA11C857B9C0066B794 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 60680B9E1C857B9C0066B794 /* MBProgressHUD.m */; };
+		60680BA21C857B9C0066B794 /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = 60680BA01C857B9C0066B794 /* MBProgressHUD+HM.m */; };
+		60680BA41C88168F0066B794 /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 60680BA31C88168F0066B794 /* bus.png */; };
+		60680BA71C88189B0066B794 /* LHYQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60680BA61C88189B0066B794 /* LHYQueryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,13 @@
 		605892C11C7C48CF008831EB /* routes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = routes.plist; sourceTree = "<group>"; };
 		605892C31C7C4D7C008831EB /* LHYRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHYRoute.h; sourceTree = "<group>"; };
 		605892C41C7C4D7C008831EB /* LHYRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHYRoute.m; sourceTree = "<group>"; };
+		60680B9D1C857B9C0066B794 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		60680B9E1C857B9C0066B794 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		60680B9F1C857B9C0066B794 /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
+		60680BA01C857B9C0066B794 /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
+		60680BA31C88168F0066B794 /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
+		60680BA51C88189B0066B794 /* LHYQueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LHYQueryViewController.h; path = ../LHYQueryViewController.h; sourceTree = "<group>"; };
+		60680BA61C88189B0066B794 /* LHYQueryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LHYQueryViewController.m; path = ../LHYQueryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +97,12 @@
 		6058929A1C7C2F25008831EB /* SmartBus */ = {
 			isa = PBXGroup;
 			children = (
+				60680BA51C88189B0066B794 /* LHYQueryViewController.h */,
+				60680BA61C88189B0066B794 /* LHYQueryViewController.m */,
+				60680B9D1C857B9C0066B794 /* MBProgressHUD.h */,
+				60680B9E1C857B9C0066B794 /* MBProgressHUD.m */,
+				60680B9F1C857B9C0066B794 /* MBProgressHUD+HM.h */,
+				60680BA01C857B9C0066B794 /* MBProgressHUD+HM.m */,
 				6058929F1C7C2F25008831EB /* AppDelegate.h */,
 				605892C31C7C4D7C008831EB /* LHYRoute.h */,
 				605892C41C7C4D7C008831EB /* LHYRoute.m */,
@@ -94,6 +111,7 @@
 				605892A31C7C2F25008831EB /* ViewController.m */,
 				605892A51C7C2F25008831EB /* Main.storyboard */,
 				605892A81C7C2F25008831EB /* Images.xcassets */,
+				60680BA31C88168F0066B794 /* bus.png */,
 				605892AA1C7C2F25008831EB /* LaunchScreen.xib */,
 				6058929B1C7C2F25008831EB /* Supporting Files */,
 			);
@@ -208,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60680BA41C88168F0066B794 /* bus.png in Resources */,
 				605892C21C7C48CF008831EB /* routes.plist in Resources */,
 				605892A71C7C2F25008831EB /* Main.storyboard in Resources */,
 				605892AC1C7C2F25008831EB /* LaunchScreen.xib in Resources */,
@@ -231,7 +250,10 @@
 			files = (
 				605892A41C7C2F25008831EB /* ViewController.m in Sources */,
 				605892C51C7C4D7C008831EB /* LHYRoute.m in Sources */,
+				60680BA11C857B9C0066B794 /* MBProgressHUD.m in Sources */,
 				605892A11C7C2F25008831EB /* AppDelegate.m in Sources */,
+				60680BA71C88189B0066B794 /* LHYQueryViewController.m in Sources */,
+				60680BA21C857B9C0066B794 /* MBProgressHUD+HM.m in Sources */,
 				6058929E1C7C2F25008831EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +451,7 @@
 				605892BD1C7C2F25008831EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		605892BE1C7C2F25008831EB /* Build configuration list for PBXNativeTarget "SmartBusTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +460,7 @@
 				605892C01C7C2F25008831EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

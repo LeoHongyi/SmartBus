@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "LHYRoute.h"
+#import "MBProgressHUD+HM.h"
+
 
 @interface ViewController ()<UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *arrTimeField;
@@ -17,6 +19,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *drField;
 
 @property (weak, nonatomic) IBOutlet UITextField *dsField;
+
+@property(nonatomic,strong)NSString *fid;
+@property(nonatomic,strong)NSString *ostop;
+@property(nonatomic,strong)NSString *dstop;
+@property(nonatomic,strong)NSString *orn;
+@property(nonatomic,strong)NSString *drn;
+
 
 @property (nonatomic,weak) UIDatePicker *datePicker;
 
@@ -159,11 +168,15 @@
     if (pickerView.tag == 10) {
         self.orField.text = r.route;
         self.osField.text = r.stops[stopIndex];
+        self.ostop = r.stops[stopIndex];
+        self.orn = r.route;
     }
     
     if (pickerView.tag == 20) {
         self.drField.text = r.route;
         self.dsField.text = r.stops[stopIndex];
+        self.dstop = r.stops[stopIndex];
+        self.drn = r.route;
     }
     
     
@@ -199,5 +212,69 @@
 {
     [self.view endEditing:YES];
 }
+
+- (IBAction)request:(id)sender {
+      self.fid = [[[UIDevice currentDevice]identifierForVendor] UUIDString];
+      [MBProgressHUD showMessage:@"input...."];
+//http://localhost:8080/SmartBus/TestInput
+//    NSLog(@"%@,%@,%@,%@,%@",self.fid,self.ostop,self.dstop,self.orn,self.drn);
+    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/SmartBus/TestInput"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.timeoutInterval = 5;
+    request.HTTPMethod = @"post";
+    NSString *param = [NSString stringWithFormat:@"fid=%@&ostop=%@&dstop=%@&orn=%@&drn=%@",self.fid,self.ostop,self.dstop,self.orn,self.drn];
+    request.HTTPBody = [param dataUsingEncoding:NSUTF8StringEncoding];
+    NSOperationQueue *queue = [NSOperationQueue mainQueue];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        [MBProgressHUD hideHUD];
+        NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"%d",[str intValue]);
+        if ([str intValue] == 1) {
+            [MBProgressHUD showSuccess:@"input success"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 [self performSegueWithIdentifier:@"Input2Query" sender:nil];
+            });
+           
+            
+//            [MBProgressHUD showMessage:@"query..."];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [MBProgressHUD hideHUD];
+//                
+//                NSURL *url1 = [NSURL URLWithString:@"http://localhost:8080/SmartBus/TestQuery"];
+//                NSMutableURLRequest *request1 = [NSMutableURLRequest requestWithURL:url1];
+//                request1.timeoutInterval = 5;
+//                request1.HTTPMethod = @"post";
+//                NSString *param1 = [NSString stringWithFormat:@"fid=%@",self.fid];
+//                request1.HTTPBody = [param1 dataUsingEncoding:NSUTF8StringEncoding];
+//                NSOperationQueue *queue1 = [NSOperationQueue currentQueue];
+//                [NSURLConnection sendAsynchronousRequest:request1 queue:queue1 completionHandler:^(NSURLResponse *response, NSData *data1, NSError *connectionError) {
+//                    NSDictionary *dict1 = [NSJSONSerialization JSONObjectWithData:data1 options:kNilOptions error:nil];
+//                    NSLog(@"%@",dict1);
+//                    
+//                    
+//                }];
+//                
+//            });
+           
+        }else{
+            [MBProgressHUD showError:@"error"];
+        }
+        
+    }];
+    
+    //[MBProgressHUD showMessage:@"query..."];
+   // dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+       // [MBProgressHUD hideHUD];
+        // NSLog(@"hello");
+    
+    
+        
+        
+//    });
+    
+}
+
+
+
 
 @end
