@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *podBusArrT;
 @property (weak, nonatomic) IBOutlet UIButton *request;
 
+@property (weak, nonatomic) IBOutlet UILabel *hold_success;
 
 @end
 
@@ -61,13 +62,33 @@
             self.p_hold_requset = @"1";
             NSString *param1 = [NSString stringWithFormat:@"p_hold_requset=%d&fid=%@",[self.p_hold_requset intValue],self.fid];
             request1.HTTPBody = [param1 dataUsingEncoding:NSUTF8StringEncoding];
-            NSOperationQueue *queue = [NSOperationQueue currentQueue];
+            NSOperationQueue *queue = [NSOperationQueue mainQueue];
             [NSURLConnection sendAsynchronousRequest:request1 queue:queue completionHandler:^(NSURLResponse *response, NSData *data1, NSError *connectionError) {
                 [MBProgressHUD hideHUD];
                 NSString *str1 = [[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
                 NSLog(@"%d",[str1 intValue]);
                 if ([str1 intValue] == 1) {
                     [MBProgressHUD showSuccess:@"update success"];
+                    
+                    [MBProgressHUD showMessage:@"Holding Query...."];
+                    NSURL *url2 = [NSURL URLWithString:@"http://localhost:8080/SmartBus/TestHoldQuery"];
+                    NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:url2];
+                    request2.timeoutInterval = 5;
+                    request2.HTTPMethod = @"post";
+                    NSString *param2 = [NSString stringWithFormat:@"fid=%@",self.fid];
+                    request2.HTTPBody = [param2 dataUsingEncoding:NSUTF8StringEncoding];
+                    NSOperationQueue *queue = [NSOperationQueue mainQueue];
+                    [NSURLConnection sendAsynchronousRequest:request2 queue:queue completionHandler:^(NSURLResponse *response, NSData *data2, NSError *connectionError) {
+                        [MBProgressHUD hideHUD];
+                        NSArray *arr = [NSJSONSerialization JSONObjectWithData:data2 options:kNilOptions error:nil];
+                        NSLog(@"%@",arr);
+                        NSDictionary *dict = arr[arr.count-1];
+                        self.hold_success.text = dict[@"p_hold_success"];
+                        
+                    }];
+                    
+                    
+                    
                 }else{
                     [MBProgressHUD showError:@"error"];
                 }

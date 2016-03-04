@@ -176,12 +176,25 @@
                                     <action selector="request:" destination="iOs-dF-n0b" eventType="touchUpInside" id="5FH-Dh-eQw"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDi-rZ-iDc">
+                                <rect key="frame" x="206" y="372" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.30046404030000001" green="1" blue="0.31339736410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="P_HOLD_SUCCESS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1X-Ah-RTs">
+                                <rect key="frame" x="27" y="370" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="NyC-DQ-VfC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="hold_success" destination="kDi-rZ-iDc" id="txv-b4-WFn"/>
                         <outlet property="p_next_delay" destination="VM9-KS-rFh" id="ifJ-SQ-jsX"/>
                         <outlet property="poBusArrT" destination="CwG-Tq-HQJ" id="DPM-64-pvc"/>
                         <outlet property="podBusArrT" destination="PYe-w0-Csf" id="RW1-fb-8iH"/>
