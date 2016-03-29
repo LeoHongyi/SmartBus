@@ -246,6 +246,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="warning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pj-PJ-t0Y">
+                                <rect key="frame" x="63" y="88" width="231" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -256,11 +262,12 @@
                         <outlet property="poBusArrT" destination="CwG-Tq-HQJ" id="DPM-64-pvc"/>
                         <outlet property="podBusArrT" destination="PYe-w0-Csf" id="RW1-fb-8iH"/>
                         <outlet property="request" destination="zx9-ey-ZPI" id="Hoy-gp-Pj3"/>
+                        <outlet property="warningField" destination="3pj-PJ-t0Y" id="jJw-8B-nbm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0J-jl-QMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-85.5" y="120.5"/>
+            <point key="canvasLocation" x="-134.5" y="109.5"/>
         </scene>
     </scenes>
     <resources>
