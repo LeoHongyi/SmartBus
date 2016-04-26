@@ -371,7 +371,7 @@
       [MBProgressHUD showMessage:@"input...."];
 //http://localhost:8080/SmartBus/TestInput
 //    NSLog(@"%@,%@,%@,%@,%@",self.fid,self.ostop,self.dstop,self.orn,self.drn);
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/SmartBus/TestInput"];
+    NSURL *url = [NSURL URLWithString:@"http://128.235.163.140:8080/SmartBus/TestInput"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.timeoutInterval = 5;
     request.HTTPMethod = @"post";

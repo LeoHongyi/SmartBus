@@ -22,7 +22,9 @@
 @property (nonatomic, strong) dispatch_source_t timer;
 @property (weak, nonatomic) IBOutlet UILabel *warningField;
 
+@property (weak, nonatomic) IBOutlet UILabel *p_tosp_id;
 
+@property (weak, nonatomic) IBOutlet UILabel *p_odsp_id;
 
 @end
 
@@ -54,7 +56,7 @@
     self.fid = @"238a11fd7ca11bd";
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUD];
-        NSURL *url = [NSURL URLWithString:@"http://localhost:8080/SmartBus/TestQuery"];
+        NSURL *url = [NSURL URLWithString:@"http://128.235.163.140:8080/SmartBus/TestQuery"];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         request.timeoutInterval = 5;
         request.HTTPMethod = @"post";
@@ -68,9 +70,11 @@
             NSLog(@"%@",arr[0]);
             NSDictionary *dict = arr[0];
             NSLog(@"%@",dict[@"warn"]);
-            if (dict[@"warn"] == NULL) {
-                 self.poBusArrT.text = dict[@"Connecting Bus Schedule Arrival Time at Transfer Stop"];
-                 self.podBusArrT.text = dict[@"First Bus Schedule Arrival Time at Transfer Stop"];
+            if ([dict[@"warn"]  isEqual: @"OK"]) {
+                 self.poBusArrT.text = dict[@"ptoBusArrT"];
+                 self.podBusArrT.text = dict[@"podBusArrT"];
+                self.p_tosp_id.text = dict[@"p_tosp_id"];
+                self.p_odsp_id.text = dict[@"p_tosp_id"];
             }else{
                 self.warningField.text = dict[@"warn"];
             }
@@ -92,7 +96,7 @@
         }]];
         [alert addAction:[UIAlertAction actionWithTitle:@"REQUEST" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             [MBProgressHUD showMessage:@"update..."];
-            NSURL *url1 = [NSURL URLWithString:@"http://localhost:8080/SmartBus/TestHold"];
+            NSURL *url1 = [NSURL URLWithString:@"http://128.235.163.140:8080/SmartBus/TestHold"];
             NSMutableURLRequest *request1 = [NSMutableURLRequest requestWithURL:url1];
             request1.timeoutInterval = 5;
             request1.HTTPMethod = @"post";
@@ -111,7 +115,7 @@
                     [MBProgressHUD showSuccess:@"update success"];
                     
                     [MBProgressHUD showMessage:@"Holding Query...."];
-                    NSURL *url2 = [NSURL URLWithString:@"http://localhost:8080/SmartBus/TestHoldQuery"];
+                    NSURL *url2 = [NSURL URLWithString:@"http://128.235.163.140:8080/SmartBus/TestHoldQuery"];
                     NSMutableURLRequest *request2 = [NSMutableURLRequest requestWithURL:url2];
                     request2.timeoutInterval = 5;
                     request2.HTTPMethod = @"post";
@@ -136,7 +140,7 @@
                     dispatch_source_set_event_handler(self.timer, ^{
                         
                         NSLog(@"----");
-                        NSURL *url3 = [NSURL URLWithString:@"http://localhost:8080/SmartBus/TestRoute"];
+                        NSURL *url3 = [NSURL URLWithString:@"http://128.235.163.140:8080/SmartBus/TestRoute"];
                         NSMutableURLRequest *request3 = [NSMutableURLRequest requestWithURL:url3];
                         request3.timeoutInterval = 5;
                         request3.HTTPMethod = @"post";
@@ -145,7 +149,19 @@
                         NSOperationQueue *queue = [NSOperationQueue mainQueue];
                         [NSURLConnection sendAsynchronousRequest:request3 queue:queue completionHandler:^(NSURLResponse *response, NSData *data3, NSError *connectionError) {
                             
-                            NSString *str3 = [[NSString alloc]initWithData:data3 encoding:NSUTF8StringEncoding];
+                            
+                            
+                            
+                            NSArray *arr = [NSJSONSerialization JSONObjectWithData:data3 options:kNilOptions error:nil];
+                            NSLog(@"%@",arr);
+                            // str3 = arr[0];
+                            NSDictionary *dict = arr[0];
+                            //NSLog(@"%@",arr);
+                            NSString *str3  = dict[@"b_route_decision"];
+                            
+                           
+                            
+                            
                             if ([str3  isEqual: @"arrive"]) {
                                 
                                 dispatch_cancel(self.timer);
